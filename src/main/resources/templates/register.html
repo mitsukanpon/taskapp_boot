@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <main layout:fragment="content" class="bg-image vh-100">
+        <div class="container pt-4">
+            <div class="row justify-content-center">
+                <div class="card shadow" style="max-width: 480px;">
+                    <div class="card-body">
+                        <h3 class="card-title mb-3 text-center text-navy">
+                            ユーザ登録
+                        </h3>
+
+                        <form th:action="@{/register}" th:object="${user}" method="post" novalidate>
+                            <div class="mb-3">
+                                <label for="username" class="form-control">
+                                    <span class="badge bg-danger">必須</span>
+                                    ユーザ名
+                                </label>
+                                <input type="text" id="text" class="form-control" th:errorclass="is-invalid" th:field="*{userName}">
+                                <div class="invalid-feedback" th:errors="*{userName}"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-control">
+                                    <span class="badge bg-danger">必須</span>
+                                    パスワード
+                                </label>
+                                <input type="password" id="text" class="form-control" th:errorclass="is-invalid" th:field="*{password}">
+                                <div class="invalid-feedback" th:errors="*{password}"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-control">
+                                    <span class="badge bg-danger">必須</span>
+                                    メールアドレス
+                                </label>
+                                <input type="email" id="text" class="form-control" th:errorclass="is-invalid" th:field="*{email}">
+                                <div class="invalid-feedback" th:errors="*{email}"></div>
+                            </div>
+                            <div class="mb-3">
+                                性別
+                                <div class="ms-2 form-check" th:each="gender:${T(com.example.springsecurity5.util.Type).GENDERS}">
+                                    <input type="radio" class="form-check-input" th:field="*{gender}" th:value="${gender.key}">
+                                    <label th:for="${#ids.prev('gender')}" class="form-check-label" th:text="${gender.value}"></label>
+                                </div>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" th:field="*{admin}">
+                                <label th:for="${#ids.prev('admin')}" class="form-check-label">
+                                    管理者として登録する
+                                </label>
+                            </div>
+                            <button class="w-100 btn btn navy" type="submit">
+                                登録
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

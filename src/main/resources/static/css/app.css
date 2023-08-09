@@ -1,0 +1,86 @@
+/* Color */
+.bg-image {
+    background-image: 
+    linear-gradient(to bottom,
+    rgb(158, 185, 151),
+    rgba(136, 143, 135, 0.7)
+    ),
+    url('/images/FYI04775172.jpeg');
+    background-size: cover;
+}
+
+.table-spacing {
+    margin-bottom: 50px; /* テーブル間の間隔を調整 */
+}
+
+.text{
+    border: none;
+}
+
+#text:focus{
+    box-shadow: 0 0 5px 0 rgba(255,153,0,1);
+    border: 2px solid #FFF !important;
+    outline: 0;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    margin: 1px;
+}
+
+.text-navy {
+    color: #22be4c;
+}
+
+.btn-navy {
+    color:rgba(239, 53, 15, 0.995);
+    background-color: #224abe;
+}
+
+.btn-navy:hover {
+    color: white;
+    background-color: #0d47a1;
+}
+
+/* Off-Canvas(Sidebar) */
+.offcanvas {
+    width: 200px !important;
+}
+
+@media(min-width:992px) {
+.offcanvas {
+    transform: none !important;
+    visibility: visible !important;
+}
+}
+
+.offcanvas-outside {
+    transition: margin-left 0.3s ease-in-out;
+    margin-left: 200px;
+}
+
+.btn-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    opacity: 0.5;
+    border: 0;
+}
+
+/* Link */
+a {
+    text-decoration: none;
+}
+
+/* Size */
+.mh-100 {
+    height: calc(100vh - 56px);
+}
+
+/* Table */
+.table > :not(:first-child) {
+    border-top: 0;
+}
+
+

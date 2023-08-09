@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="~{/layout/layout}">
+<head>
+    <meta charset="UTF-8" th:remove="tag">
+</head>
+<body>
+    <main layout:fragment="content" class="bg-image">
+        <div class="container">
+            <div class="row vh-100 align-items-center justify-content-center">
+                <div class="card shadow" style="max-width: 480px;">
+                    <div class="card-body">
+                        <h3 class="card-title mb-3 text-center text-navy">
+                            タスク管理システム
+                        </h3>
+                        <!-- ログインメッセージ -->
+                        <div th:replace="~{fragments/message :: login}">
+                        </div>
+
+                        <form th:action="@{/login}" method="post">
+                            <div class="mb-3">
+                                <input type="text" id="text" class="form-control" name="username" placeholder="ユーザ名">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" id="text" class="form-control" name="password" placeholder="パスワード">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="remember-me" name="remember-me">
+                                <label for="remember-me" class="form-check-label">
+                                    ログインしたままにする
+                                </label>
+                            </div>
+                            <div class="text-center">
+                                <button class="w-100 btn btn-navy text-white" type="submit">
+                                    ログイン
+                                </button>
+                            </div>
+                        </form>
+                        <hr>
+
+                        <div class="text-center">
+                            <a th:href="@{/register}" class="text-navy">
+                                新規登録はこちら
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
